@@ -1,0 +1,1 @@
+<?php/** * CG Memo Module * * A module to display notes in a memo-note style. *  * From Polished Geek package mod_postit * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL * */// no direct accessdefined( '_JEXEC' ) or die( 'Restricted access' );use Joomla\CMS\Helper\ModuleHelper;require( ModuleHelper::getLayoutPath( 'mod_cg_memo' ) );?>

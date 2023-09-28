@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="4.1.0" client="site" method="upgrade">
+	<name>CG Responsive Memo</name>
+	<author>ConseilGouz</author>
+	<creationDate>2023-09-28</creationDate>
+	<copyright>Copyright (C) 2023 ConseilGouz. All rights reserved.</copyright>
+	<authorEmail>pascal.leconte@conseilgouz.com</authorEmail>
+	<authorUrl>www.conseilgouz.com</authorUrl>
+	<version>4.0.0</version>
+	<namespace path="src">ConseilGouz\Module\Cgmemo</namespace>	
+	<description>CG_MEMO_DESC</description>
+	<files>
+		<filename module="mod_cg_memo">mod_cg_memo.php</filename>
+		<filename>index.html</filename>
+		<filename>mod_cg_memo.xml</filename>
+		<folder>src</folder>
+		<folder>tmpl</folder>
+	</files>
+	<media destination="mod_cg_memo" folder="media">
+		<folder>fonts</folder>
+		<folder>img</folder>
+		<filename>index.html</filename>
+	</media>
+	<scriptfile>script.php</scriptfile>
+	<changelogurl>https://raw.githubusercontent.com/conseilgouz/mod_cg_memo_j4/master/mod_cg_memo_changelog.xml</changelogurl>
+	<languages>
+		<language tag="en-GB">language/en-GB/mod_cg_memo.ini</language>
+		<language tag="en-GB">language/en-GB/mod_cg_memo.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="notedesign" addfieldprefix="ConseilGouz\Module\Cgmemo\Site\Field">
+				<field name="version" type="version"  margintop="-4em" extension="mod_cg_memo"/>
+				<field name="class" type="text" label="CG_MEMO_CLASS" description="CG_MEMO_CLASS_DESC" default="" required="true"/>
+				<field name="customclass" type="text" label="CG_MEMO_CUSTOMCLASS" description="CG_MEMO_CUSTOMCLASS_DESC" default=""/>
+				<field name="max-width" type="text" label="CG_MEMO_MAX_WIDTH" description="CG_MEMO_MAX_WIDTH_DESC" default="100"/>
+				<field name="max-height" type="text" label="CG_MEMO_MAX_HEIGHT" description="CG_MEMO_MAX_HEIGHT_DESC" default="100"/>
+				<field name="note-color" type="color" label="CG_MEMO_NOTE_COLOR" description="CG_MEMO_NOTE_COLOR_DESC" default="#ffffcc"/>
+				<field name="padding-top" type="text" label="CG_MEMO_PADDING_TOP" description="CG_MEMO_PADDING_DESC" default="20"/>
+				<field name="padding-right" type="text" label="CG_MEMO_PADDING_TOP" description="CG_MEMO_PADDING_DESC" default="10"/>
+				<field name="padding-bottom" type="text" label="CG_MEMO_PADDING_BOTTOM" description="CG_MEMO_PADDING_DESC" default="10"/>
+				<field name="padding-left" type="text" label="CG_MEMO_PADDING_LEFT" description="CG_MEMO_PADDING_DESC" default="10"/>
+				<field name="degrees" type="text" label="CG_MEMO_DEGREES" description="CG_MEMO_DEGREES_DESC" default="-5.5"/>
+				<field name="shadow-horizontal" type="text" label="CG_MEMO_SHADOW_HORIZONTAL" description="CG_MEMO_SHADOW_HORIZONTAL_DESC" default="5"/>
+				<field name="shadow-vertical" type="text" label="CG_MEMO_SHADOW_VERTICAL" description="CG_MEMO_SHADOW_VERTICAL_DESC" default="5"/>
+				<field name="shadow-blur" type="text" label="CG_MEMO_SHADOW_BLUR" description="CG_MEMO_SHADOW_BLUR_DESC" default="7"/>
+				<field name="shadow-color" type="color" label="CG_MEMO_SHADOW_COLOR" description="CG_MEMO_SHADOW_COLOR_DESC" default="#ccc"/>
+				<field name="tack-color" type="list" label="CG_MEMO_TACK_COLOR" description="CG_MEMO_TACK_COLOR_DESC" default="" >
+					<option value="blue.png">CG_MEMO_BLUE</option>
+					<option value="green.png">CG_MEMO_GREEN</option>
+					<option value="orange.png">CG_MEMO_ORANGE</option>
+					<option value="red.png">CG_MEMO_RED</option>
+					<option value="white.png">CG_MEMO_WHITE</option>
+					<option value="yellow.png">CG_MEMO_YELLOW</option>
+				</field>
+				<field name="pinvisibleyes" type="list" label="CG_MEMO_PIN_VISIBLE" description="CG_MEMO_PIN_VISIBLE_DESC" default="" >
+				<option value="showpin">CG_MEMO_PIN_SHOW</option>
+				<option value="hidepin">CG_MEMO_PIN_HIDE</option>
+				</field>
+				<field name="tack-top" type="text" label="CG_MEMO_TACK_TOP" description="CG_MEMO_TACK_TOP_DESC" default="-15"/>
+				<field name="tack-left" type="text" label="CG_MEMO_TACK_LEFT" description="CG_MEMO_TACK_LEFT_DESC" default="5"/>
+				<field name="tackpath" type="hidden"/>
+			</fieldset>
+			<fieldset name="textlayout">
+				<field name="font-family" type="text" label="CG_MEMO_FONT_FAMILY" description="CG_MEMO_FONT_FAMILY_DESC" default="Indie Flower"/>
+				<field name="font-size" type="text" label="CG_MEMO_FONT_SIZE" description="CG_MEMO_FONT_SIZE_DESC" default="20"/>
+				<field name="color" type="color" label="CG_MEMO_COLOR" description="CG_MEMO_COLOR_DESC" default=""/>
+				<field name="line-height" type="text" label="CG_MEMO_LINE_HEIGHT" description="CG_MEMO_LINE_HEIGHT_DESC" default="24"/>
+			</fieldset>
+			<fieldset name="notetext">
+				<field name="editor" label ="" type="editor" width="300" filter="safehtml" />
+			</fieldset>
+		</fields>
+	</config>
+	<updateservers>
+		<server type="extension" priority="1" name="CG Responsive Memo">https://raw.githubusercontent.com/conseilgouz/updates_github/master/mod_cg_memo_update.xml</server>
+	</updateservers>
+</extension> 
