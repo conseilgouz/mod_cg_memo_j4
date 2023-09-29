@@ -4,12 +4,12 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 use Joomla\CMS\Uri\Uri;
 use Joomla\CMS\Factory;
 $modulefield	= 'media/mod_cg_memo/';
+$document 		= Factory::getDocument();
 /** @var Joomla\CMS\WebAsset\WebAssetManager $wa */
 $wa = Factory::getDocument()->getWebAssetManager();
 $wa->registerAndUseStyle('cgmemo',$modulefield.'css/cgmemo.css');
 $core = $wa->useAsset('script', 'core');
 if ((bool)Factory::getConfig()->get('debug')) { // Mode debug
-	$document 		= Factory::getDocument();
 	$document->addScript(''.URI::base(true).'/media/mod_cg_memo/js/cgmemo.js'); 
 } else {
 	$wa->registerAndUseScript('cgmemo',$modulefield.'js/cgmemo.js');
