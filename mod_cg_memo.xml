@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension type="module" version="4.1.0" client="site" method="upgrade">
+<extension type="module" version="4.2.0" client="site" method="upgrade">
 	<name>CG Responsive Memo</name>
 	<author>ConseilGouz</author>
 	<creationDate>2023-09-28</creationDate>
@@ -10,7 +10,7 @@
 	<namespace path="src">ConseilGouz\Module\Cgmemo</namespace>	
 	<description>CG_MEMO_DESC</description>
 	<files>
-		<filename module="mod_cg_memo">mod_cg_memo.php</filename>
+		<folder module="mod_cg_memo">services</folder>
 		<filename>index.html</filename>
 		<filename>mod_cg_memo.xml</filename>
 		<folder>src</folder>
@@ -62,7 +62,7 @@
 				<field name="tackpath" type="hidden"/>
 			</fieldset>
 			<fieldset name="textlayout">
-				<field name="font-family" type="text" label="CG_MEMO_FONT_FAMILY" description="CG_MEMO_FONT_FAMILY_DESC" default="Indie Flower"/>
+				<field name="font-family" type="text" label="CG_MEMO_FONT_FAMILY" description="CG_MEMO_FONT_FAMILY_DESC" default="allthatmattersmedium"/>
 				<field name="font-size" type="text" label="CG_MEMO_FONT_SIZE" description="CG_MEMO_FONT_SIZE_DESC" default="20"/>
 				<field name="color" type="color" label="CG_MEMO_COLOR" description="CG_MEMO_COLOR_DESC" default=""/>
 				<field name="line-height" type="text" label="CG_MEMO_LINE_HEIGHT" description="CG_MEMO_LINE_HEIGHT_DESC" default="24"/>

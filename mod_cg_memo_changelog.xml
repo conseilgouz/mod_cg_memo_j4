@@ -11,6 +11,7 @@
 		</fix>
 		<change>
 			<item>Replace unmaintained Reponsive Post-it Note module (from Polished Geek)</item>
+			<item>Use WebAssets</item>
 		</change>
 	</changelog>
 	<changelog>

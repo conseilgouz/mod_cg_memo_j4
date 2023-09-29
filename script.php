@@ -17,8 +17,8 @@ use Joomla\CMS\Log\Log;
 
 class mod_cg_memoInstallerScript
 {
-	private $min_joomla_version      = '4.0.0';
-	private $min_php_version         = '7.2';
+	private $min_joomla_version      = '4.2.0';
+	private $min_php_version         = '8.0';
 	private $name                    = 'Module CG Memo';
 	private $exttype                 = 'module';
 	private $extname                 = 'cg_memo';
@@ -68,32 +68,25 @@ class mod_cg_memoInstallerScript
 		return true;
     }
 	private function postinstall_cleanup() {
-/*		$obsloteFiles = [sprintf("%s/plugins/content/%s/simpleaccordeon.css", JPATH_SITE, $this->extname),
-						 sprintf("%s/plugins/system/%s/simpleaccordeon.js", JPATH_SITE, $this->extname)];
-		foreach ($obsloteFiles as $file)
+		// remove mod_post-it files
+		$obsloteFolders = ['mod_postit'];
+		foreach ($obsloteFolders as $folder)
 		{
-			if (@is_file($file))
-			{
+			$f = JPATH_SITE . '/modules/'.$folder;
+			if (!@file_exists($f) || !is_dir($f) || is_link($f)) {
+				continue;
+			}
+			Folder::delete($f);
+		}
+		$langFiles = [
+			sprintf("%s/language/en-GB/en-GB.mod_postit.ini", JPATH_SITE),
+			sprintf("%s/language/en-GB/en-GB.mod_postit.sys.ini", JPATH_SITE),
+			];
+		foreach ($langFiles as $file) {
+			if (@is_file($file)) {
 				File::delete($file);
 			}
 		}
-		$j = new Version();
-		$version=$j->getShortVersion(); 
-		$version_arr = explode('.',$version);
-		if (($version_arr[0] == "4") || (($version_arr[0] == "3") && ($version_arr[1] == "10"))) {
-			// Delete 3.9 and older language files
-			$langFiles = [
-				sprintf("%s/language/en-GB/en-GB.plg_content_%s.ini", JPATH_ADMINISTRATOR, $this->extname),
-				sprintf("%s/language/en-GB/en-GB.plg_content_%s.sys.ini", JPATH_ADMINISTRATOR, $this->extname),
-				sprintf("%s/language/fr-FR/fr-FR.plg_content_%s.ini", JPATH_ADMINISTRATOR, $this->extname),
-				sprintf("%s/language/fr-FR/fr-FR.plg_content_%s.sys.ini", JPATH_ADMINISTRATOR, $this->extname),
-			];
-			foreach ($langFiles as $file) {
-				if (@is_file($file)) {
-					File::delete($file);
-				}
-			}
-		}*/
 		// remove obsolete update sites
 		$db = Factory::getDbo();
 		$query = $db->getQuery(true)
@@ -104,10 +97,37 @@ class mod_cg_memoInstallerScript
 		// Simple Isotope is now on Github
 		$query = $db->getQuery(true)
 			->delete('#__update_sites')
-			->where($db->quoteName('location') . ' like "%conseilgouz.com/updates/simple_accordeon%"');
+			->where($db->quoteName('location') . ' like "%polishedgeek.com/updates/postit_update%"');
 		$db->setQuery($query);
 		$db->execute();
-
+		// update existing modules to cg_memo
+		$db = Factory::getDbo();
+        $conditions = array($db->qn('module') . ' = ' . $db->q('mod_postit'));
+        $fields = array($db->qn('module') . ' = '. $db->q('mod_cg_memo'));
+        $query = $db->getQuery(true);
+		$query->update($db->quoteName('#__modules'))->set($fields)->where($conditions);
+		$db->setQuery($query);
+        try {
+	        $db->execute();
+        }
+        catch (\RuntimeException $e) {
+            Log::add('unable to update mod_post_it to cg_memo', Log::ERROR, 'jerror');
+        }
+		// delete mod_postit from extensions
+        $conditions = array(
+			$db->quoteName('type').'='.$db->quote('module'),
+			$db->quoteName('element').'='.$db->quote('mod_postit')
+        );
+        $query = $db->getQuery(true);
+		$query->delete($db->quoteName('#__extensions'))->where($conditions);
+		$db->setQuery($query);
+        try {
+	        $db->execute();
+        }
+        catch (\RuntimeException $e) {
+            Log::add('unable to delete mod_postit from extensions', Log::ERROR, 'jerror');
+        }
+		
 	}
 
 	// Check if Joomla version passes minimum requirement
