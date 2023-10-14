@@ -2,11 +2,11 @@
 <extension type="module" version="4.2.0" client="site" method="upgrade">
 	<name>CG Responsive Memo</name>
 	<author>ConseilGouz</author>
-	<creationDate>2023-09-29</creationDate>
+	<creationDate>2023-10-14</creationDate>
 	<copyright>Copyright (C) 2023 ConseilGouz. All rights reserved.</copyright>
 	<authorEmail>pascal.leconte@conseilgouz.com</authorEmail>
 	<authorUrl>www.conseilgouz.com</authorUrl>
-	<version>4.0.1</version>
+	<version>4.0.2</version>
 	<namespace path="src">ConseilGouz\Module\Cgmemo</namespace>	
 	<description>CG_MEMO_DESC</description>
 	<files>
@@ -70,6 +70,14 @@
 			<fieldset name="notetext">
 				<field name="editor" label ="" type="editor" width="300" filter="safehtml" />
 			</fieldset>
+			<fieldset name="advanced">
+				<field name="cache"	type="list"	label="COM_MODULES_FIELD_CACHING_LABEL"
+					default="0"	filter="integer" validate="options"	>
+					<option value="1">JGLOBAL_USE_GLOBAL</option>
+					<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+			</fieldset>
+			
 		</fields>
 	</config>
 	<updateservers>

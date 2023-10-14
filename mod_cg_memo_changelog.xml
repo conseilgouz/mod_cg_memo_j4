@@ -2,6 +2,17 @@
 	<changelog>
 		<element>mod_cg_memo</element>
 		<type>Module</type>
+		<version>4.0.2</version>
+        <note>
+            <item>Update : 14/10/2023</item>
+        </note>
+		<addition>
+			<item>No cache parameter</item>
+		</addition>
+	</changelog>
+	<changelog>
+		<element>mod_cg_memo</element>
+		<type>Module</type>
 		<version>4.0.1</version>
         <note>
             <item>Update : 29/09/2023</item>
