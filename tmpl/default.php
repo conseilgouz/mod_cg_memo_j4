@@ -22,7 +22,7 @@ if ((bool)Factory::getConfig()->get('debug')) { // Mode debug
 	$wa->registerAndUseScript('cgmemo',$modulefield.'js/cgmemo.js');
 }
 $style = "";
-if ($params->get('font-family') == 'allthatmattersmedium' || $params->get('font-family') == 'Indie Flower') {
+if ($params->get('font-family') == 'allthatmattersmedium') {
 	$style = "@font-face {
 		font-family: 'allthatmattersmedium';
 		src: url('".URI::root()."media/mod_cg_memo/fonts/allthatmatters-webfont.eot');
