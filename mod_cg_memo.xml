@@ -2,11 +2,11 @@
 <extension type="module" version="4.2.0" client="site" method="upgrade">
 	<name>CG Responsive Memo</name>
 	<author>ConseilGouz</author>
-	<creationDate>2023-10-14</creationDate>
+	<creationDate>2023-10-27</creationDate>
 	<copyright>Copyright (C) 2023 ConseilGouz. All rights reserved.</copyright>
 	<authorEmail>pascal.leconte@conseilgouz.com</authorEmail>
 	<authorUrl>www.conseilgouz.com</authorUrl>
-	<version>4.0.2</version>
+	<version>4.0.3</version>
 	<namespace path="src">ConseilGouz\Module\Cgmemo</namespace>	
 	<description>CG_MEMO_DESC</description>
 	<files>
@@ -19,6 +19,8 @@
 	<media destination="mod_cg_memo" folder="media">
 		<folder>fonts</folder>
 		<folder>img</folder>
+		<folder>css</folder>
+		<folder>js</folder>
 		<filename>index.html</filename>
 	</media>
 	<scriptfile>script.php</scriptfile>

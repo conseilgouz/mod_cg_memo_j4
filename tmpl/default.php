@@ -1,4 +1,11 @@
 <?php 
+/**
+ * CG Memo Module for Joomla 4.x/5.x
+ *
+ * @author     ConseilgGouz
+ * @copyright (C) 2023 www.conseilgouz.com. All Rights Reserved.
+ * @license    GNU/GPLv3 https://www.gnu.org/licenses/gpl-3.0.html
+ */
 // no direct access
 defined( '_JEXEC' ) or die( 'Restricted access' ); 
 use Joomla\CMS\Uri\Uri;
@@ -15,11 +22,17 @@ if ((bool)Factory::getConfig()->get('debug')) { // Mode debug
 	$wa->registerAndUseScript('cgmemo',$modulefield.'js/cgmemo.js');
 }
 $style = "";
-if ($params->get('font-family') == 'allthatmattersmedium') {
+if ($params->get('font-family') == 'allthatmattersmedium' || $params->get('font-family') == 'Indie Flower') {
 	$style = "@font-face {
 		font-family: 'allthatmattersmedium';
 		src: url('".URI::root()."media/mod_cg_memo/fonts/allthatmatters-webfont.eot');
 		src: url('".URI::root()."media/mod_cg_memo/fonts/allthatmatters-webfont.eot?#iefix') format('embedded-opentype'),  url('".URI::root()."media/mod_cg_memo/fonts/allthatmatters-webfont.woff') format('woff'),  url('".URI::root()."media/mod_cg_memo/fonts/allthatmatters-webfont.ttf') format('truetype'),  url('".URI::root()."media/mod_cg_memo/fonts/allthatmatters-webfont.svg#allthatmattersmedium') format('svg');
+		font-weight: normal;
+		font-style: normal;
+	}";
+	$style .= "@font-face {
+		font-family: 'Indie Flower';
+		url('".URI::root()."media/mod_cg_memo/fonts/IndieFlower-Regular.ttf') format('truetype');
 		font-weight: normal;
 		font-style: normal;
 	}";
@@ -30,9 +43,9 @@ $style .= ".".$params->get('class').".cg-memo-note {
 		max-height:".$params->get('max-height')."%;
 		max-width:".$params->get('max-width')."%; 
 		font-size:".$params->get('font-size')."px;
-		color:".$params->get('color')."!important;
+		color:".$params->get('color','black')."!important;
 		font-family:".$params->get('font-family').";
-		line-height:".$params->get('line-height')."px!important;
+		line-height:".$params->get('line-height')."px !important;
 		background-color:".$params->get('note-color').";
 		padding-top:".$params->get('padding-top')."px;
 		padding-right:".$params->get('padding-right')."px;

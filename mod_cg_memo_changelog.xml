@@ -2,6 +2,20 @@
 	<changelog>
 		<element>mod_cg_memo</element>
 		<type>Module</type>
+		<version>4.0.3</version>
+        <note>
+            <item>Update : 27/10/2023</item>
+        </note>
+		<addition>
+			<item>Indie Flower font</item>
+		</addition>
+		<fix>
+			<item>Install : missing js/css folders</item>
+		</fix>
+	</changelog>
+	<changelog>
+		<element>mod_cg_memo</element>
+		<type>Module</type>
 		<version>4.0.2</version>
         <note>
             <item>Update : 14/10/2023</item>

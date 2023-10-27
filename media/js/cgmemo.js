@@ -3,7 +3,7 @@
  *
  * @author     ConseilgGouz
  * @copyright (C) 2023 www.conseilgouz.com. All Rights Reserved.
- * @license    GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
+ * @license    GNU/GPLv3 https://www.gnu.org/licenses/gpl-3.0.html
  */
 var cgmemo_options = [];
 var $base;
@@ -25,7 +25,7 @@ for(var i=0; i<mains.length; i++) {
 }
 })
 function go_cgmemo(id,options)  {
-	if (options.fontfamily != 'allthatmattersmedium') {
+	if (options.fontfamily != 'allthatmattersmedium' && options.fontfamily != 'Indie Flower') {
 		WebFont.load({
 			google: {
 			families: [ options.fontfamily ]
