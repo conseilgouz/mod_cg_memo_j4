@@ -2,6 +2,17 @@
 	<changelog>
 		<element>mod_cg_memo</element>
 		<type>Module</type>
+		<version>4.0.4</version>
+        <note>
+            <item>Update : 27/10/2023</item>
+        </note>
+		<fix>
+			<item>Leave Indie Flower font as a google font</item>
+		</fix>
+	</changelog>
+	<changelog>
+		<element>mod_cg_memo</element>
+		<type>Module</type>
 		<version>4.0.3</version>
         <note>
             <item>Update : 27/10/2023</item>

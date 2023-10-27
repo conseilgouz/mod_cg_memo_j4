@@ -25,7 +25,7 @@ for(var i=0; i<mains.length; i++) {
 }
 })
 function go_cgmemo(id,options)  {
-	if (options.fontfamily != 'allthatmattersmedium' && options.fontfamily != 'Indie Flower') {
+	if (options.fontfamily != 'allthatmattersmedium') {
 		WebFont.load({
 			google: {
 			families: [ options.fontfamily ]
