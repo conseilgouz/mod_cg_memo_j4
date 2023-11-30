@@ -2,6 +2,17 @@
 	<changelog>
 		<element>mod_cg_memo</element>
 		<type>Module</type>
+		<version>4.0.6</version>
+        <note>
+            <item>Update : 30/11/2023</item>
+        </note>
+		<fix>
+			<item>Joomla 4.4.1/5.0.1 compatibility</item>
+		</fix>
+	</changelog>
+	<changelog>
+		<element>mod_cg_memo</element>
+		<type>Module</type>
 		<version>4.0.5</version>
         <note>
             <item>Update : 27/10/2023</item>
