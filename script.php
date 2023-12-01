@@ -1,7 +1,7 @@
 <?php
 /**
 * CG Memo - Joomla 4.x/5.x Module 
-* Version			: 4.0.8
+* Version			: 4.0.9
 * copyright 		: Copyright (C) 2023 ConseilGouz. All rights reserved.
 * license    		: http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
 * from              : Joomla 3.x Polished Geek Responsive Post-it module
@@ -79,7 +79,7 @@ class mod_cg_memoInstallerScript
 			Folder::delete($f);
 		}
 		$obsoleteFiles = [
-			sprintf("%s/modules/mod_cg_memo/mod_%s/mod_%.php", JPATH_SITE,$this->extname,$this->extname),
+			sprintf("%s/modules/mod_cg_memo/mod_%s/mod_%s.php", JPATH_SITE,$this->extname,$this->extname),
 			];
 		foreach ($obsoleteFiles as $file) {
 			if (@is_file($file)) {

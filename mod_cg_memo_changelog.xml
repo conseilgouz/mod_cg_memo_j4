@@ -2,6 +2,17 @@
 	<changelog>
 		<element>mod_cg_memo</element>
 		<type>Module</type>
+		<version>4.0.9</version>
+        <note>
+            <item>Update : 01/12/2023</item>
+        </note>
+		<fix>
+			<item>Syntax error in script.php</item>
+		</fix>
+	</changelog>
+	<changelog>
+		<element>mod_cg_memo</element>
+		<type>Module</type>
 		<version>4.0.8</version>
         <note>
             <item>Update : 01/12/2023</item>
