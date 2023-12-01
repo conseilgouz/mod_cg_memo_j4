@@ -79,7 +79,7 @@ class mod_cg_memoInstallerScript
 			Folder::delete($f);
 		}
 		$obsoleteFiles = [
-			sprintf("%s/modules/mod_cg_memo/mod_%s/mod_%s.php", JPATH_SITE,$this->extname,$this->extname),
+			sprintf("%s/modules/mod_%s/mod_%s.php", JPATH_SITE,$this->extname,$this->extname),
 			];
 		foreach ($obsoleteFiles as $file) {
 			if (@is_file($file)) {
