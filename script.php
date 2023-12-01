@@ -1,7 +1,7 @@
 <?php
 /**
 * CG Memo - Joomla 4.x/5.x Module 
-* Version			: 4.0.0
+* Version			: 4.0.8
 * copyright 		: Copyright (C) 2023 ConseilGouz. All rights reserved.
 * license    		: http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
 * from              : Joomla 3.x Polished Geek Responsive Post-it module
@@ -77,6 +77,14 @@ class mod_cg_memoInstallerScript
 				continue;
 			}
 			Folder::delete($f);
+		}
+		$obsoleteFiles = [
+			sprintf("%s/modules/mod_cg_memo/mod_%s/mod_%.php", JPATH_SITE,$this->extname,$this->extname),
+			];
+		foreach ($obsoleteFiles as $file) {
+			if (@is_file($file)) {
+				File::delete($file);
+			}
 		}
 		$langFiles = [
 			sprintf("%s/language/en-GB/en-GB.mod_postit.ini", JPATH_SITE),

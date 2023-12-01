@@ -6,14 +6,13 @@
 	<copyright>Copyright (C) 2023 ConseilGouz. All rights reserved.</copyright>
 	<authorEmail>pascal.leconte@conseilgouz.com</authorEmail>
 	<authorUrl>www.conseilgouz.com</authorUrl>
-	<version>4.0.7</version>
+	<version>4.0.8</version>
 	<namespace path="src">ConseilGouz\Module\Cgmemo</namespace>	
 	<description>CG_MEMO_DESC</description>
 	<files>
-		<filename module="mod_cg_memo">mod_cg_memo.php</filename>
+		<folder module="mod_cg_memo">services</folder>
 		<filename>index.html</filename>
 		<filename>mod_cg_memo.xml</filename>
-		<folder>services</folder>
 		<folder>src</folder>
 		<folder>tmpl</folder>
 	</files>

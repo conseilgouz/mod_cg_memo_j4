@@ -2,12 +2,23 @@
 	<changelog>
 		<element>mod_cg_memo</element>
 		<type>Module</type>
+		<version>4.0.8</version>
+        <note>
+            <item>Update : 01/12/2023</item>
+        </note>
+		<fix>
+			<item>Revert 4.0.7 updates</item>
+		</fix>
+	</changelog>
+	<changelog>
+		<element>mod_cg_memo</element>
+		<type>Module</type>
 		<version>4.0.7</version>
         <note>
             <item>Update : 01/12/2023</item>
         </note>
 		<fix>
-			<item>Loosing CSS : move mod_cg_memo.php back to module's root </item>
+			<item>Loosing CSS : move mod_cg_memo.php back to module's root</item>
 		</fix>
 	</changelog>
 	<changelog>
