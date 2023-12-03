@@ -6,11 +6,9 @@
  * @license    GNU/GPLv3 https://www.gnu.org/licenses/gpl-3.0.html
  */
 var cgmemo_options = [];
-var $base;
 
 document.addEventListener('DOMContentLoaded', function() {
 
-$base = Joomla.getOptions('system.paths').baseFull;
 mains = document.querySelectorAll('.cg-memo-note');
 for(var i=0; i<mains.length; i++) {
 	var $this = mains[i];

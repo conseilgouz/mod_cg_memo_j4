@@ -37,7 +37,7 @@ if ($params->get('font-family') == 'allthatmattersmedium') {
 		font-style: normal;
 	}";
 } else {
-	$wa->registerAndUseScript('googleFont','//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
+	$wa->registerAndUseScript('googleFont','//ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js');
 }
 $style .= ".".$params->get('class').".cg-memo-note {
 		max-height:".$params->get('max-height')."%;
@@ -60,7 +60,7 @@ $style .= ".".$params->get('class').".cg-memo-note {
 		-o-transform: rotate(".$params->get('degrees')."deg);
 		box-shadow:".$params->get('shadow-horizontal')."px
 					".$params->get('shadow-vertical')."px 
-					".$params->get('shadow-blur')."px' 
+					".$params->get('shadow-blur')."px 
 					".$params->get('shadow-color').";
 	}";
 $style .= ".".$params->get('class').".editor-output {line-height:".$params->get('line-height')."px !important;}";
