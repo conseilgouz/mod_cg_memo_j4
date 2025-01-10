@@ -44,8 +44,8 @@ class CgrangeField extends RangeField
     {
         /** @var Joomla\CMS\WebAsset\WebAssetManager $wa */
         $wa = Factory::getApplication()->getDocument()->getWebAssetManager();
-        $wa->registerAndUseStyle('cgrange', 'media/mod_cg_memo/css/cgrange.css');
-        $wa->registerAndUseScript('cgrange', 'media/mod_cg_memo/js/cgrange.js');
+        $wa->registerAndUseStyle('cgrange', 'media/layout/conseilgouz/cgrange.css');
+        $wa->registerAndUseScript('cgrange', 'media/layout/conseilgouz/cgrange.js');
 
         return $this->getRenderer($this->layout)->render($this->collectLayoutData());
     }
