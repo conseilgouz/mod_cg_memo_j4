@@ -56,6 +56,7 @@ $attributes = [
     !empty($max) ? 'max="' . $max . '"' : '',
     !empty($step) ? 'step="' . $step . '"' : '',
     !empty($min) ? 'min="' . $min . '"' : '',
+    !empty($unit) ? 'unit="' . $unit . '"' : '',
     $autofocus ? 'autofocus' : '',
     $dataAttribute,
 ];
@@ -72,7 +73,7 @@ $value = is_numeric($value) ? (float) $value : $min;
     id="<?php echo $id; ?>"
     value="<?php echo htmlspecialchars($value, ENT_COMPAT, 'UTF-8'); ?>"
     <?php echo implode(' ', $attributes); ?>>
-<?php if (strpos($class,'buttons') !== false) { ?>
+<?php if (strpos($class, 'buttons') !== false) { ?>
 <div class="rangebuttons text-center">
 <span id="cgrange-minus-<?php echo $id;?>" class="cgrange-minus" data="<?php echo $id;?>" style="margin-left:1em">&nbsp;-&nbsp;</span>
 <span id="cgrange-reset-<?php echo $id;?>" class="cgrange-reset" data="<?php echo $id;?>" style="margin-left:.2em" >Reset</span>

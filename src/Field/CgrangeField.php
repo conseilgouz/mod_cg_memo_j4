@@ -26,6 +26,14 @@ class CgrangeField extends RangeField
     protected $layout = 'conseilgouz.cgrange';
 
     /**
+     * Unit
+     *
+     * @var    string
+     */
+
+    protected $unit = "";
+
+    /**
      * Method to get the field input markup.
      *
      * @return  string  The field input markup.
@@ -56,7 +64,13 @@ class CgrangeField extends RangeField
         }
 
         $this->layoutData = $this->getLayoutData();
-
         return $this->layoutData;
+    }
+    protected function getLayoutData()
+    {
+        $data      = parent::getLayoutData();
+        $extraData = ["unit" => $this->element['unit']
+        ];
+        return array_merge($data, $extraData);
     }
 }

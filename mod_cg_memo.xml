@@ -38,35 +38,35 @@
 				<field name="version" type="version"  margintop="-4em" extension="mod_cg_memo"/>
 				<field name="class" type="text" label="CG_MEMO_CLASS" description="CG_MEMO_CLASS_DESC" default="" required="true"/>
 				<field name="customclass" type="text" label="CG_MEMO_CUSTOMCLASS" description="CG_MEMO_CUSTOMCLASS_DESC" default=""/>
-				<field name="max-width" type="cgrange" class="limits buttons" 
+				<field name="max-width" type="cgrange" class="limits buttons" unit="%"
                     label="CG_MEMO_MAX_WIDTH" description="CG_MEMO_MAX_WIDTH_DESC" 
                     default="100" min="1" max="100" step="1"/>
-				<field name="max-height" type="cgrange" class="limits buttons" 
+				<field name="max-height" type="cgrange" class="limits buttons" unit="%"
                     label="CG_MEMO_MAX_HEIGHT" description="CG_MEMO_MAX_HEIGHT_DESC" 
                     default="100" min="1" max="100" step="1"/>
 				<field name="note-color" type="color" label="CG_MEMO_NOTE_COLOR" description="CG_MEMO_NOTE_COLOR_DESC" default="#ffffcc"/>
-				<field name="padding-top" type="cgrange" class="limits buttons" 
+				<field name="padding-top" type="cgrange" class="limits buttons" unit="px"
                     label="CG_MEMO_PADDING_TOP" description="CG_MEMO_PADDING_DESC" 
                     default="20"  min="0" max="50" step="1"/>
-				<field name="padding-right" type="cgrange" class="limits buttons" 
-                    label="CG_MEMO_PADDING_TOP" description="CG_MEMO_PADDING_DESC" 
+				<field name="padding-right" type="cgrange" class="limits buttons" unit="px"
+                    label="CG_MEMO_PADDING_RIGHT" description="CG_MEMO_PADDING_DESC" 
                     default="10"  min="0" max="50" step="1"/>
-				<field name="padding-bottom" type="cgrange" class="limits buttons" 
+				<field name="padding-bottom" type="cgrange" class="limits buttons" unit="px"
                     label="CG_MEMO_PADDING_BOTTOM" description="CG_MEMO_PADDING_DESC" 
                     default="10"  min="0" max="50" step="1"/>
-				<field name="padding-left" type="cgrange" class="limits buttons" 
+				<field name="padding-left" type="cgrange" class="limits buttons" unit="px"
                     label="CG_MEMO_PADDING_LEFT" description="CG_MEMO_PADDING_DESC" 
                     default="10"  min="0" max="50" step="1"/>
-				<field name="degrees" type="cgrange" class="limits buttons" 
+				<field name="degrees" type="cgrange" class="limits buttons" unit="°"
                     label="CG_MEMO_DEGREES" description="CG_MEMO_DEGREES_DESC" 
                     default="-5.5" min="-180" max="180" step=".5"/>
-				<field name="shadow-horizontal" type="cgrange" class="limits buttons" 
+				<field name="shadow-horizontal" type="cgrange" class="limits buttons" unit="px"
                     label="CG_MEMO_SHADOW_HORIZONTAL" description="CG_MEMO_SHADOW_HORIZONTAL_DESC" 
                     default="5" min="0" max="50" step="1"/>
-				<field name="shadow-vertical" type="cgrange" class="limits buttons" 
+				<field name="shadow-vertical" type="cgrange" class="limits buttons" unit="px"
                     label="CG_MEMO_SHADOW_VERTICAL" description="CG_MEMO_SHADOW_VERTICAL_DESC" 
                     default="5"  min="0" max="50" step="1"/>
-				<field name="shadow-blur" type="cgrange" class="limits buttons" 
+				<field name="shadow-blur" type="cgrange" class="limits buttons" unit="px"
                     label="CG_MEMO_SHADOW_BLUR" description="CG_MEMO_SHADOW_BLUR_DESC" 
                     default="7"  min="0" max="50" step="1"/>
 				<field name="shadow-color" type="color" label="CG_MEMO_SHADOW_COLOR" description="CG_MEMO_SHADOW_COLOR_DESC" default="#ccc"/>
@@ -82,21 +82,21 @@
 				<option value="showpin">CG_MEMO_PIN_SHOW</option>
 				<option value="hidepin">CG_MEMO_PIN_HIDE</option>
 				</field>
-				<field name="tack-top" type="cgrange" class="limits buttons" 
+				<field name="tack-top" type="cgrange" class="limits buttons" unit="px"
                     label="CG_MEMO_TACK_TOP" description="CG_MEMO_TACK_TOP_DESC" 
                     default="-15"  min="-50" max="50" step="1"/>
-				<field name="tack-left" type="cgrange" class="limits buttons" 
+				<field name="tack-left" type="cgrange" class="limits buttons" unit="px"
                     label="CG_MEMO_TACK_LEFT" description="CG_MEMO_TACK_LEFT_DESC" 
                     default="5"  min="0" max="50" step="1"/>
 				<field name="tackpath" type="hidden"/>
 			</fieldset>
 			<fieldset name="textlayout">
 				<field name="font-family" type="text" label="CG_MEMO_FONT_FAMILY" description="CG_MEMO_FONT_FAMILY_DESC" default="allthatmattersmedium"/>
-				<field name="font-size" type="cgrange" class="limits buttons" 
+				<field name="font-size" type="cgrange" class="limits buttons" unit="px"
                     label="CG_MEMO_FONT_SIZE" description="CG_MEMO_FONT_SIZE_DESC" 
                     default="20"  min="5" max="50" step="1"/>
 				<field name="color" type="color" label="CG_MEMO_COLOR" description="CG_MEMO_COLOR_DESC" default=""/>
-				<field name="line-height" type="cgrange" class="limits buttons" 
+				<field name="line-height" type="cgrange" class="limits buttons" unit="px"
                     label="CG_MEMO_LINE_HEIGHT" description="CG_MEMO_LINE_HEIGHT_DESC" 
                     default="24"  min="5" max="50" step="1"/>
 			</fieldset>

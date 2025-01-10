@@ -11,8 +11,10 @@ document.addEventListener('DOMContentLoaded', function() {
     for(var i=0; i< cgranges.length; i++) {
         cgranges[i].addEventListener('input',function() {
             let $id = this.getAttribute('id');
+            range = document.getElementById($id);
+            unit = range.getAttribute('unit');
             label = document.querySelector('#cgrange-label-'+$id);
-            label.innerHTML = this.value;
+            label.innerHTML = this.value+unit;
         })
     }
     let cgresets = document.querySelectorAll('.cgrange-reset');
@@ -20,9 +22,10 @@ document.addEventListener('DOMContentLoaded', function() {
         cgresets[i].addEventListener('click',function() {
             let $id = this.getAttribute('data');
             range = document.getElementById($id);
+            unit = range.getAttribute('unit');
             range.value = 0;
             label = document.querySelector('#cgrange-label-'+$id);
-            label.innerHTML = 0;
+            label.innerHTML = 0+unit;
         })
     }
     let cgminus = document.querySelectorAll('.cgrange-minus');
@@ -32,10 +35,11 @@ document.addEventListener('DOMContentLoaded', function() {
             range = document.getElementById($id);
             step = parseFloat(range.getAttribute('step'));
             min = parseFloat(range.getAttribute('min'));
+            unit = range.getAttribute('unit');
             range.value = parseFloat(range.value) - step;
             if (range.value < min) range.value = min;
             label = document.querySelector('#cgrange-label-'+$id);
-            label.innerHTML = range.value;
+            label.innerHTML = range.value+unit;
         })
     }
     let cgplus = document.querySelectorAll('.cgrange-plus');
@@ -43,20 +47,23 @@ document.addEventListener('DOMContentLoaded', function() {
         cgplus[i].addEventListener('click',function() {
             let $id = this.getAttribute('data');
             range = document.getElementById($id);
+            unit = range.getAttribute('unit');
             step = parseFloat(range.getAttribute('step'));
             max = parseFloat(range.getAttribute('max'));
             range.value = parseFloat(range.value) + parseFloat(step);
             if (range.value > max) range.value = max;
             label = document.querySelector('#cgrange-label-'+$id);
-            label.innerHTML = range.value;
+            label.innerHTML = range.value+unit;
         })
     }
     // initialize
     let cglabels = document.querySelectorAll('.cgrange-label');
     for(var i=0; i< cglabels.length; i++) {
         let $id = cglabels[i].getAttribute('data');
-        var value = document.querySelector('#'+$id).getAttribute('value');
-        cglabels[i].innerHTML = value;
+        let range = document.querySelector('#'+$id);
+        let value = range.getAttribute('value');
+        let unit = range.getAttribute('unit');
+        cglabels[i].innerHTML = value + unit;
     }
 
 })
