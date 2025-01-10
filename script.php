@@ -97,6 +97,8 @@ class mod_cg_memoInstallerScript
 		}
 		$obsoleteFiles = [
 			sprintf("%s/modules/mod_%s/mod_%s.php", JPATH_SITE,$this->extname,$this->extname),
+            sprintf("%s/media/mod_%s/js/cgrange.js", JPATH_SITE,$this->extname),
+            sprintf("%s/media/mod_%s/css/cgrange.css", JPATH_SITE,$this->extname),
 			];
 		foreach ($obsoleteFiles as $file) {
 			if (@is_file($file)) {
