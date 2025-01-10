@@ -1,8 +1,7 @@
 <?php
 /**
 * CG Memo - Joomla 4.x/5.x Module 
-* Version			: 4.0.9
-* copyright 		: Copyright (C) 2023 ConseilGouz. All rights reserved.
+* copyright 		: Copyright (C) 2025 ConseilGouz. All rights reserved.
 * license    		: http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
 * from              : Joomla 3.x Polished Geek Responsive Post-it module
 */
@@ -10,10 +9,11 @@
 defined('_JEXEC') or die;
 use Joomla\CMS\Factory;
 use Joomla\CMS\Language\Text;
-use Joomla\Filesystem\Folder;
-use Joomla\CMS\Version;
-use Joomla\Filesystem\File;
 use Joomla\CMS\Log\Log;
+use Joomla\CMS\Version;
+use Joomla\Database\DatabaseInterface;
+use Joomla\Filesystem\File;
+use Joomla\Filesystem\Folder;
 
 class mod_cg_memoInstallerScript
 {
@@ -68,8 +68,17 @@ class mod_cg_memoInstallerScript
 		return true;
     }
 	private function postinstall_cleanup() {
-		// remove mod_post-it files
-		$obsloteFolders = ['mod_postit'];
+        
+        // move layout to its correct directory
+        $f = JPATH_SITE . "/layouts/conseilgouz";
+        if (!is_dir($f)) {
+            mkdir($f);
+        }
+        copy(JPATH_SITE."/modules/mod_cg_memo/layouts/cgrange.php",$f.'/'."cgrange.php");
+        copy(JPATH_SITE."/modules/mod_cg_memo/layouts/index.html",$f.'/'."index.html");
+        
+		// remove mod_post-it files + layouts dir
+		$obsloteFolders = ['mod_postit','mod_cg_memo/layouts'];
 		foreach ($obsloteFolders as $folder)
 		{
 			$f = JPATH_SITE . '/modules/'.$folder;
@@ -96,7 +105,7 @@ class mod_cg_memoInstallerScript
 			}
 		}
 		// remove obsolete update sites
-		$db = Factory::getDbo();
+		$db = Factory::getContainer()->get(DatabaseInterface::class);
 		$query = $db->getQuery(true)
 			->delete('#__update_sites')
 			->where($db->quoteName('location') . ' like "%432473037d.url-de-test.ws/%"');
@@ -180,7 +189,7 @@ class mod_cg_memoInstallerScript
 			JPATH_PLUGINS . '/system/' . $this->installerName . '/language',
 			JPATH_PLUGINS . '/system/' . $this->installerName,
 		]);
-		$db = Factory::getDbo();
+		$db = Factory::getContainer()->get(DatabaseInterface::class);
 		$query = $db->getQuery(true)
 			->delete('#__extensions')
 			->where($db->quoteName('element') . ' = ' . $db->quote($this->installerName))
@@ -190,5 +199,17 @@ class mod_cg_memoInstallerScript
 		$db->execute();
 		Factory::getCache()->clean('_system');
 	}
+    public function delete($files = [])
+    {
+        foreach ($files as $file) {
+            if (is_dir($file)) {
+                Folder::delete($file);
+            }
+
+            if (is_file($file)) {
+                File::delete($file);
+            }
+        }
+    }
 	
 }

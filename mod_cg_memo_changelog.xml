@@ -2,6 +2,24 @@
 	<changelog>
 		<element>mod_cg_memo</element>
 		<type>Module</type>
+		<version>4.1.0</version>
+        <note>
+            <item>Update : 10/01/2025</item>
+        </note>
+		<change>
+			<item>Use range fields</item>
+		</change>
+		<addition>
+			<item>French translation</item>
+		</addition>
+		<fix>
+			<item>Install : missing delete function</item>
+            <item>Joomla 6.x compatibility</item>
+		</fix>
+	</changelog>
+	<changelog>
+		<element>mod_cg_memo</element>
+		<type>Module</type>
 		<version>4.0.10</version>
         <note>
             <item>Update : 03/12/2023</item>

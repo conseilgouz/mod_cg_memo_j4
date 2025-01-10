@@ -3,7 +3,7 @@
  * CG Memo Module for Joomla 4.x/5.x
  *
  * @author     ConseilgGouz
- * @copyright (C) 2023 www.conseilgouz.com. All Rights Reserved.
+ * @copyright (C) 2025 www.conseilgouz.com. All Rights Reserved.
  * @license    GNU/GPLv3 https://www.gnu.org/licenses/gpl-3.0.html
  */
 // no direct access
@@ -11,9 +11,9 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 use Joomla\CMS\Uri\Uri;
 use Joomla\CMS\Factory;
 $modulefield	= 'media/mod_cg_memo/';
-$document 		= Factory::getDocument();
+$document 		= Factory::getApplication()->getDocument();
 /** @var Joomla\CMS\WebAsset\WebAssetManager $wa */
-$wa = Factory::getDocument()->getWebAssetManager();
+$wa = Factory::getApplication()->getDocument()->getWebAssetManager();
 $wa->registerAndUseStyle('cgmemo',$modulefield.'css/cgmemo.css');
 $core = $wa->useAsset('script', 'core');
 if ((bool)Factory::getConfig()->get('debug')) { // Mode debug
