@@ -70,7 +70,11 @@
                     label="CG_MEMO_SHADOW_BLUR" description="CG_MEMO_SHADOW_BLUR_DESC" 
                     default="7"  min="0" max="50" step="1"/>
 				<field name="shadow-color" type="color" label="CG_MEMO_SHADOW_COLOR" description="CG_MEMO_SHADOW_COLOR_DESC" default="#ccc"/>
-				<field name="tack-color" type="list" label="CG_MEMO_TACK_COLOR" description="CG_MEMO_TACK_COLOR_DESC" default="" >
+				<field name="pinvisibleyes" type="radio" class="btn-group" label="CG_MEMO_PIN_VISIBLE" description="CG_MEMO_PIN_VISIBLE_DESC" default="" >
+				<option value="showpin">CG_MEMO_PIN_SHOW</option>
+				<option value="hidepin">CG_MEMO_PIN_HIDE</option>
+				</field>
+				<field name="tack-color" type="list" label="CG_MEMO_TACK_COLOR" description="CG_MEMO_TACK_COLOR_DESC" default="" showon="pinvisibleyes:showpin">
 					<option value="blue.png">CG_MEMO_BLUE</option>
 					<option value="green.png">CG_MEMO_GREEN</option>
 					<option value="orange.png">CG_MEMO_ORANGE</option>
@@ -78,14 +82,10 @@
 					<option value="white.png">CG_MEMO_WHITE</option>
 					<option value="yellow.png">CG_MEMO_YELLOW</option>
 				</field>
-				<field name="pinvisibleyes" type="list" label="CG_MEMO_PIN_VISIBLE" description="CG_MEMO_PIN_VISIBLE_DESC" default="" >
-				<option value="showpin">CG_MEMO_PIN_SHOW</option>
-				<option value="hidepin">CG_MEMO_PIN_HIDE</option>
-				</field>
-				<field name="tack-top" type="cgrange" class="limits buttons" unit="px"
+				<field name="tack-top" showon="pinvisibleyes:showpin" type="cgrange" class="limits buttons" unit="px"
                     label="CG_MEMO_TACK_TOP" description="CG_MEMO_TACK_TOP_DESC" 
                     default="-15"  min="-50" max="50" step="1"/>
-				<field name="tack-left" type="cgrange" class="limits buttons" unit="px"
+				<field name="tack-left" showon="pinvisibleyes:showpin" type="cgrange" class="limits buttons" unit="px"
                     label="CG_MEMO_TACK_LEFT" description="CG_MEMO_TACK_LEFT_DESC" 
                     default="5"  min="0" max="50" step="1"/>
 				<field name="tackpath" type="hidden"/>
