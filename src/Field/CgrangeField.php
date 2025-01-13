@@ -23,7 +23,7 @@ class CgrangeField extends RangeField
      * @var    string
      * @since  3.7
      */
-    protected $layout = 'conseilgouz.cgrange';
+    protected $layout = 'cgrange';
 
     /**
      * Unit
@@ -32,6 +32,18 @@ class CgrangeField extends RangeField
      */
 
     protected $unit = "";
+    /* module's information */
+    public $_ext = "mod";
+    public $_type = "cg";
+    public $_name = "memo";
+
+    protected function getLayoutPaths()
+    {
+        $paths = parent::getLayoutPaths();
+        $paths[] = dirname(__DIR__).'/../layouts';
+        return $paths;
+
+    }
 
     /**
      * Method to get the field input markup.
@@ -42,11 +54,6 @@ class CgrangeField extends RangeField
      */
     protected function getInput()
     {
-        /** @var Joomla\CMS\WebAsset\WebAssetManager $wa */
-        $wa = Factory::getApplication()->getDocument()->getWebAssetManager();
-        $wa->registerAndUseStyle('cgrange', 'media/layouts/conseilgouz/cgrange.css');
-        $wa->registerAndUseScript('cgrange', 'media/layouts/conseilgouz/cgrange.js');
-
         return $this->getRenderer($this->layout)->render($this->collectLayoutData());
     }
     /**
