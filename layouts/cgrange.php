@@ -1,15 +1,23 @@
 <?php
 /**
-* CG Scroll - Joomla Module
-* Version			: 4.3.4
-* Package			: Joomla 3.10.x - 4.x - 5.x
-* copyright 		: Copyright (C) 2024 ConseilGouz. All rights reserved.
-* license    		: https://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
-*/
+ * CG Memo Module for Joomla 4.x/5.x
+ *
+ * @author     ConseilgGouz
+ * @copyright (C) 2025 www.conseilgouz.com. All Rights Reserved.
+ * @license    GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
+ */
 
 defined('_JEXEC') or die;
+use Joomla\CMS\Factory;
 
 extract($displayData);
+
+$extdir = $field->_ext.'_'.$field->_type.'_'.$field->_name;
+
+/** @var Joomla\CMS\WebAsset\WebAssetManager $wa */
+$wa = Factory::getApplication()->getDocument()->getWebAssetManager();
+$wa->registerAndUseStyle('cgrange', 'media/'.$extdir.'/css/cgrange.css');
+$wa->registerAndUseScript('cgrange', 'media/'.$extdir.'/js/cgrange.js');
 
 /**
  * Layout variables
@@ -63,7 +71,8 @@ $attributes = [
 
 $value = is_numeric($value) ? (float) $value : $min;
 // CG Range : display current value after range
-//             add class="limits" to display ranhge limits
+//             add class="limits" to display range limits
+//             add class="buttons" to display reset, + , - buttons 
 ?>
 <div style="display:flex">
 <div>

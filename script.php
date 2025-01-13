@@ -69,24 +69,8 @@ class mod_cg_memoInstallerScript
     }
 	private function postinstall_cleanup() {
         
-        // move layout to its correct directory
-        $f = JPATH_SITE . "/layouts/conseilgouz";
-        if (!is_dir($f)) {
-            mkdir($f);
-        }
-        copy(JPATH_SITE."/modules/mod_cg_memo/layouts/cgrange.php",$f.'/'."cgrange.php");
-        copy(JPATH_SITE."/modules/mod_cg_memo/layouts/index.html",$f.'/'."index.html");
-        // move layout to its correct directory
-        $f = JPATH_SITE . "/media/layouts/conseilgouz";
-        if (!is_dir($f)) {
-            mkdir($f);
-        }
-        copy(JPATH_SITE."/media/mod_cg_memo/css/cgrange.css",$f.'/'."cgrange.css");
-        copy(JPATH_SITE."/media/mod_cg_memo/css/index.html",$f.'/'."index.html");
-        copy(JPATH_SITE."/media/mod_cg_memo/js/cgrange.js",$f.'/'."cgrange.js");
-        
 		// remove mod_post-it files + layouts dir
-		$obsloteFolders = ['mod_postit','mod_cg_memo/layouts'];
+		$obsloteFolders = ['mod_postit'];
 		foreach ($obsloteFolders as $folder)
 		{
 			$f = JPATH_SITE . '/modules/'.$folder;
@@ -96,9 +80,7 @@ class mod_cg_memoInstallerScript
 			Folder::delete($f);
 		}
 		$obsoleteFiles = [
-			sprintf("%s/modules/mod_%s/mod_%s.php", JPATH_SITE,$this->extname,$this->extname),
-            sprintf("%s/media/mod_%s/js/cgrange.js", JPATH_SITE,$this->extname),
-            sprintf("%s/media/mod_%s/css/cgrange.css", JPATH_SITE,$this->extname),
+			sprintf("%s/modules/mod_%s/mod_%s.php", JPATH_SITE,$this->extname,$this->extname)
 			];
 		foreach ($obsoleteFiles as $file) {
 			if (@is_file($file)) {
