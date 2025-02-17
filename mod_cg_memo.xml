@@ -2,11 +2,11 @@
 <extension type="module" version="4.2.0" client="site" method="upgrade">
 	<name>CG Responsive Memo</name>
 	<author>ConseilGouz</author>
-	<creationDate>2025-01-13</creationDate>
+	<creationDate>2025-02-17</creationDate>
 	<copyright>Copyright (C) 2025 ConseilGouz. All rights reserved.</copyright>
 	<authorEmail>pascal.leconte@conseilgouz.com</authorEmail>
 	<authorUrl>www.conseilgouz.com</authorUrl>
-	<version>4.1.1</version>
+	<version>4.1.2</version>
 	<namespace path="src">ConseilGouz\Module\Cgmemo</namespace>	
 	<description>CG_MEMO_DESC</description>
 	<files>
@@ -34,28 +34,38 @@
 	</languages>
 	<config>
 		<fields name="params">
-			<fieldset name="notedesign" addfieldprefix="ConseilGouz\Module\Cgmemo\Site\Field">
-				<field name="version" type="version"  margintop="-4em" extension="mod_cg_memo"/>
+			<fieldset name="notedesign" 
+                addfieldprefix="ConseilGouz\Module\Cgmemo\Site\Field"
+                addruleprefix="ConseilGouz\Module\Cgmemo\Site\Rule" >
+				<field name="version" type="version"  margintop="-7em" extension="mod_cg_memo"/>
 				<field name="class" type="text" label="CG_MEMO_CLASS" description="CG_MEMO_CLASS_DESC" default="" required="true"/>
 				<field name="customclass" type="text" label="CG_MEMO_CUSTOMCLASS" description="CG_MEMO_CUSTOMCLASS_DESC" default=""/>
+				<field name="type-color" type="radio" class="btn-group"  label="CG_MEMO_TYPE_COLOR" description="CG_MEMO_TYPE_COLOR_DESC" default="pick">
+                		<option value="pick">CS_MEMO_PICK</option>
+                        <option value="var">CS_MEMO_VAR</option>
+				</field>
+				<field name="note-color" type="color" showon="type-color:pick"
+                    label="CG_MEMO_NOTE_COLOR" description="CG_MEMO_NOTE_COLOR_DESC" default="#ffffcc"/>
+				<field name="note-var" type="text" showon="type-color:var"
+                    label="CG_MEMO_VAR_COLOR" description="CG_MEMO_VAR_COLOR_DESC" default="" 
+                    validate="variable"/>
 				<field name="max-width" type="cgrange" class="limits buttons" unit="%"
                     label="CG_MEMO_MAX_WIDTH" description="CG_MEMO_MAX_WIDTH_DESC" 
                     default="100" min="1" max="100" step="1"/>
 				<field name="max-height" type="cgrange" class="limits buttons" unit="%"
                     label="CG_MEMO_MAX_HEIGHT" description="CG_MEMO_MAX_HEIGHT_DESC" 
                     default="100" min="1" max="100" step="1"/>
-				<field name="note-color" type="color" label="CG_MEMO_NOTE_COLOR" description="CG_MEMO_NOTE_COLOR_DESC" default="#ffffcc"/>
 				<field name="padding-top" type="cgrange" class="limits buttons" unit="px"
                     label="CG_MEMO_PADDING_TOP" description="CG_MEMO_PADDING_DESC" 
                     default="20"  min="0" max="50" step="1"/>
-				<field name="padding-right" type="cgrange" class="limits buttons" unit="px"
-                    label="CG_MEMO_PADDING_RIGHT" description="CG_MEMO_PADDING_DESC" 
-                    default="10"  min="0" max="50" step="1"/>
 				<field name="padding-bottom" type="cgrange" class="limits buttons" unit="px"
                     label="CG_MEMO_PADDING_BOTTOM" description="CG_MEMO_PADDING_DESC" 
                     default="10"  min="0" max="50" step="1"/>
 				<field name="padding-left" type="cgrange" class="limits buttons" unit="px"
                     label="CG_MEMO_PADDING_LEFT" description="CG_MEMO_PADDING_DESC" 
+                    default="10"  min="0" max="50" step="1"/>
+				<field name="padding-right" type="cgrange" class="limits buttons" unit="px"
+                    label="CG_MEMO_PADDING_RIGHT" description="CG_MEMO_PADDING_DESC" 
                     default="10"  min="0" max="50" step="1"/>
 				<field name="degrees" type="cgrange" class="limits buttons" unit="°"
                     label="CG_MEMO_DEGREES" description="CG_MEMO_DEGREES_DESC" 
@@ -69,7 +79,15 @@
 				<field name="shadow-blur" type="cgrange" class="limits buttons" unit="px"
                     label="CG_MEMO_SHADOW_BLUR" description="CG_MEMO_SHADOW_BLUR_DESC" 
                     default="7"  min="0" max="50" step="1"/>
-				<field name="shadow-color" type="color" label="CG_MEMO_SHADOW_COLOR" description="CG_MEMO_SHADOW_COLOR_DESC" default="#ccc"/>
+				<field name="shadow-type" type="radio" class="btn-group"  label="CG_SHADOW_TYPE_COLOR" description="CG_SHADOW_TYPE_COLOR_DESC" default="pick">
+                		<option value="pick">CS_MEMO_PICK</option>
+                        <option value="var">CS_MEMO_VAR</option>
+				</field>
+				<field name="shadow-color" type="color" showon="shadow-type:pick"
+                    label="CG_MEMO_SHADOW_COLOR" description="CG_MEMO_SHADOW_COLOR_DESC" default="#ccc"/>
+				<field name="shadow-var" type="text" showon="shadow-type:var"
+                    label="CG_MEMO_VAR_SHADOW" description="CG_MEMO_VAR_SHADOW_DESC" default=""
+                    validate="variable"/>
 				<field name="pinvisibleyes" type="radio" class="btn-group" label="CG_MEMO_PIN_VISIBLE" description="CG_MEMO_PIN_VISIBLE_DESC" default="" >
 				<option value="showpin">CG_MEMO_PIN_SHOW</option>
 				<option value="hidepin">CG_MEMO_PIN_HIDE</option>
@@ -90,18 +108,27 @@
                     default="5"  min="0" max="50" step="1"/>
 				<field name="tackpath" type="hidden"/>
 			</fieldset>
-			<fieldset name="textlayout">
+			<fieldset name="textlayout" 
+                addruleprefix="ConseilGouz\Module\Cgmemo\Site\Rule" >
 				<field name="font-family" type="text" label="CG_MEMO_FONT_FAMILY" description="CG_MEMO_FONT_FAMILY_DESC" default="allthatmattersmedium"/>
 				<field name="font-size" type="cgrange" class="limits buttons" unit="px"
                     label="CG_MEMO_FONT_SIZE" description="CG_MEMO_FONT_SIZE_DESC" 
                     default="20"  min="5" max="50" step="1"/>
-				<field name="color" type="color" label="CG_MEMO_COLOR" description="CG_MEMO_COLOR_DESC" default=""/>
+   				<field name="font-color-type" type="radio" class="btn-group"  label="CG_FONT_COLOR_TYPE_COLOR" description="CG_FONT_COLOR_TYPE_COLOR_DESC" default="pick">
+                		<option value="pick">CS_MEMO_PICK</option>
+                        <option value="var">CS_MEMO_VAR</option>
+				</field>
+				<field name="color" type="color" showon="font-color-type:pick"
+                    label="CG_MEMO_COLOR" description="CG_MEMO_COLOR_DESC" default=""/>
+				<field name="font-var" type="text" showon="font-color-type:var"
+                    label="CG_MEMO_VAR_FONT" description="CG_MEMO_VAR_FONT_DESC" default=""
+                    validate="variable"/>
 				<field name="line-height" type="cgrange" class="limits buttons" unit="px"
                     label="CG_MEMO_LINE_HEIGHT" description="CG_MEMO_LINE_HEIGHT_DESC" 
                     default="24"  min="5" max="50" step="1"/>
 			</fieldset>
 			<fieldset name="notetext">
-				<field name="editor" label ="" type="editor" width="300" filter="safehtml" />
+				<field name="editor" label ="" type="editor" width="600" filter="safehtml" />
 			</fieldset>
 			<fieldset name="advanced">
 				<field name="cache"	type="list"	label="COM_MODULES_FIELD_CACHING_LABEL"

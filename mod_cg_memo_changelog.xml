@@ -2,6 +2,18 @@
 	<changelog>
 		<element>mod_cg_memo</element>
 		<type>Module</type>
+		<version>4.1.2</version>
+        <note>
+            <item>Update : 17/02/2025</item>
+        </note>
+		<change>
+			<item>Use Color picker or CSS color variables</item>
+			<item>Change parameters order and use grid-columns</item>
+		</change>
+	</changelog>
+	<changelog>
+		<element>mod_cg_memo</element>
+		<type>Module</type>
 		<version>4.1.1</version>
         <note>
             <item>Update : 13/01/2025</item>

@@ -1,0 +1,80 @@
+/**
+ * CG Memo Module for Joomla 4.x/5.x
+ *
+ * @author     ConseilgGouz
+ * @copyright (C) 2025 www.conseilgouz.com. All Rights Reserved.
+ * @license    GNU/GPLv3 https://www.gnu.org/licenses/gpl-3.0.html
+ *
+ *						>>>	CSS for Admin display module  <<<
+ */
+ /*--------------Note styling tab -----------------------*/
+#fieldset-notedesign .control-group:nth-of-type(2){ /* Memo name */
+        grid-column: 1 / 3;
+}
+#fieldset-notedesign .control-group:nth-of-type(3){ /* Memo suffix */
+    grid-column: 1 / 3;
+}
+#fieldset-notedesign  .control-group:nth-of-type(4){ /* color type */
+        grid-column: 1 / 3;
+}
+#fieldset-notedesign  .control-group:nth-of-type(5){ /* Memo color */
+        grid-column: 3 / 5;
+}
+#fieldset-notedesign  .control-group:nth-of-type(6){ /*Memo var color */
+        grid-column: 3 / 5;
+}
+#fieldset-notedesign  .control-group:nth-of-type(7){ /* width */
+        grid-column: 1 / 3;
+}
+#fieldset-notedesign  .control-group:nth-of-type(8){ /*height */
+        grid-column: 3 / 6;
+}
+#fieldset-notedesign  .control-group:nth-of-type(9){ /* top */
+	grid-column: 1 / 3;
+}
+#fieldset-notedesign  .control-group:nth-of-type(10){ /* bottom */
+	grid-column: 3 / 6;
+}
+#fieldset-notedesign  .control-group:nth-of-type(11){ /* left */
+	grid-column: 1 / 3;
+}
+#fieldset-notedesign  .control-group:nth-of-type(12){ /* right */
+	grid-column: 3 / 6;
+}
+#fieldset-notedesign  .control-group:nth-of-type(14){ /* shadow */
+	grid-column: 1 / 3;
+}
+#fieldset-notedesign  .control-group:nth-of-type(15){ /* shadow */
+	grid-column: 3 / 6;
+}
+#fieldset-notedesign  .control-group:nth-of-type(17){ /* shadow type */
+	grid-column: 1 / 3;
+}
+#fieldset-notedesign  .control-group:nth-of-type(18){ /* shadow pick */
+	grid-column: 3 / 5;
+}
+#fieldset-notedesign  .control-group:nth-of-type(19){ /* shadow var */
+	grid-column: 3 / 5;
+}
+#fieldset-notedesign  .control-group:nth-of-type(20){ /* need pin color */
+	grid-column: 1 / 3;
+}
+#fieldset-notedesign  .control-group:nth-of-type(21){ /* pin color */
+	grid-column: 3 / 5;
+}
+#fieldset-notedesign  .control-group:nth-of-type(22){ /* pin top */
+	grid-column: 1 / 3;
+}
+#fieldset-notedesign  .control-group:nth-of-type(23){ /* pin left */
+	grid-column: 3 / 6;
+}
+/*------------------------- font styling tab------------------- */
+#attrib-textlayout .control-group:nth-of-type(3){ /* font color type */
+    grid-column: 1 / 3;
+}
+#attrib-textlayout .control-group:nth-of-type(4){ /* pick font color */
+    grid-column: 3 / 5;
+}
+#attrib-textlayout .control-group:nth-of-type(5){ /* var font color */
+    grid-column: 3 / 5;
+}

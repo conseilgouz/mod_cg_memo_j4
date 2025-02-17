@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
  * CG Memo Module for Joomla 4.x/5.x
  *
@@ -7,46 +7,63 @@
  * @license    GNU/GPLv3 https://www.gnu.org/licenses/gpl-3.0.html
  */
 // no direct access
-defined( '_JEXEC' ) or die( 'Restricted access' ); 
+defined('_JEXEC') or die('Restricted access');
 use Joomla\CMS\Uri\Uri;
 use Joomla\CMS\Factory;
+
 $modulefield	= 'media/mod_cg_memo/';
 $document 		= Factory::getApplication()->getDocument();
 /** @var Joomla\CMS\WebAsset\WebAssetManager $wa */
 $wa = Factory::getApplication()->getDocument()->getWebAssetManager();
-$wa->registerAndUseStyle('cgmemo',$modulefield.'css/cgmemo.css');
+$wa->registerAndUseStyle('cgmemo', $modulefield.'css/cgmemo.css');
 $core = $wa->useAsset('script', 'core');
 if ((bool)Factory::getConfig()->get('debug')) { // Mode debug
-	$document->addScript(''.URI::base(true).'/media/mod_cg_memo/js/cgmemo.js'); 
+    $document->addScript(''.URI::base(true).'/media/mod_cg_memo/js/cgmemo.js');
 } else {
-	$wa->registerAndUseScript('cgmemo',$modulefield.'js/cgmemo.js');
+    $wa->registerAndUseScript('cgmemo', $modulefield.'js/cgmemo.js');
 }
 $style = "";
 if ($params->get('font-family') == 'allthatmattersmedium') {
-	$style = "@font-face {
+    $style = "@font-face {
 		font-family: 'allthatmattersmedium';
 		src: url('".URI::root()."media/mod_cg_memo/fonts/allthatmatters-webfont.eot');
 		src: url('".URI::root()."media/mod_cg_memo/fonts/allthatmatters-webfont.eot?#iefix') format('embedded-opentype'),  url('".URI::root()."media/mod_cg_memo/fonts/allthatmatters-webfont.woff') format('woff'),  url('".URI::root()."media/mod_cg_memo/fonts/allthatmatters-webfont.ttf') format('truetype'),  url('".URI::root()."media/mod_cg_memo/fonts/allthatmatters-webfont.svg#allthatmattersmedium') format('svg');
 		font-weight: normal;
 		font-style: normal;
 	}";
-	$style .= "@font-face {
+    $style .= "@font-face {
 		font-family: 'Indie Flower';
 		url('".URI::root()."media/mod_cg_memo/fonts/IndieFlower-Regular.ttf') format('truetype');
 		font-weight: normal;
 		font-style: normal;
 	}";
 } else {
-	$wa->registerAndUseScript('googleFont','//ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js');
+    $wa->registerAndUseScript('googleFont', '//ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js');
+}
+
+if ($params->get('font-color-type', 'pick') == 'pick') { // color picker
+    $color = $params->get('color', 'black');
+} else {// CSS variable
+    $color = 'var('.$params->get('font-var').')';
+}
+if ($params->get('type-color', 'pick') == 'pick') { // color picker
+    $note_color = $params->get('note-color');
+} else {// CSS variable
+    $note_color = 'var('.$params->get('note-var').')';
+}
+if ($params->get('shadow-type', 'pick') == 'pick') { // color picker
+    $shadow_color = $params->get('shadow-color');
+} else { // CSS variable
+    $shadow_color = 'var('.$params->get('shadow-var').')';
 }
 $style .= ".".$params->get('class').".cg-memo-note {
 		max-height:".$params->get('max-height')."%;
 		max-width:".$params->get('max-width')."%; 
 		font-size:".$params->get('font-size')."px;
-		color:".$params->get('color','black')."!important;
+		color:".$color."!important;
 		font-family:".$params->get('font-family').";
 		line-height:".$params->get('line-height')."px !important;
-		background-color:".$params->get('note-color').";
+		background-color:".$note_color.";
 		padding-top:".$params->get('padding-top')."px;
 		padding-right:".$params->get('padding-right')."px;
 		padding-bottom:".$params->get('padding-bottom')."px;
@@ -61,7 +78,7 @@ $style .= ".".$params->get('class').".cg-memo-note {
 		box-shadow:".$params->get('shadow-horizontal')."px
 					".$params->get('shadow-vertical')."px 
 					".$params->get('shadow-blur')."px 
-					".$params->get('shadow-color').";
+					".$shadow_color.";
 	}";
 $style .= ".".$params->get('class').".editor-output {line-height:".$params->get('line-height')."px !important;}";
 $style .= ".".$params->get('class')." ol li, .".$params->get('class')." ul li {line-height:".$params->get('line-height')."px!important;}";
@@ -80,9 +97,11 @@ $style .= ".".$params->get('class')." .wf-active h1,. ".$params->get('class').".
 			visibility: visible;
 			font-family: 'Cantarell';
 			}";
-$document->addScriptOptions('mod_cg_memo_'.$module->id, 
-	array('fontfamily' => $params->get('font-family'),
-	));
+$document->addScriptOptions(
+    'mod_cg_memo_'.$module->id,
+    array('fontfamily' => $params->get('font-family'),
+    )
+);
 
 // Add an inline content as usual, will be rendered in flow after all assets
 $wa->addInlineStyle($style);
