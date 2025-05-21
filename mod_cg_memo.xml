@@ -2,11 +2,11 @@
 <extension type="module" version="4.2.0" client="site" method="upgrade">
 	<name>CG Responsive Memo</name>
 	<author>ConseilGouz</author>
-	<creationDate>2025-03-14</creationDate>
+	<creationDate>2025-05-21</creationDate>
 	<copyright>Copyright (C) 2025 ConseilGouz. All rights reserved.</copyright>
 	<authorEmail>pascal.leconte@conseilgouz.com</authorEmail>
 	<authorUrl>www.conseilgouz.com</authorUrl>
-	<version>4.1.4</version>
+	<version>4.1.5</version>
 	<namespace path="src">ConseilGouz\Module\Cgmemo</namespace>	
 	<description>CG_MEMO_DESC</description>
 	<files>
@@ -46,7 +46,7 @@
 				</field>
 				<field name="note-color" type="color" showon="type-color:pick"
                     label="CG_MEMO_NOTE_COLOR" description="CG_MEMO_NOTE_COLOR_DESC" default="#ffffcc"/>
-				<field name="note-var" type="text" showon="type-color:var"
+				<field name="note-var" type="cgvariable" showon="type-color:var"
                     label="CG_MEMO_VAR_COLOR" description="CG_MEMO_VAR_COLOR_DESC" default="" 
                     validate="variable"/>
 				<field name="max-width" type="cgrange" class="limits buttons" unit="%"
@@ -85,7 +85,7 @@
 				</field>
 				<field name="shadow-color" type="color" showon="shadow-type:pick"
                     label="CG_MEMO_SHADOW_COLOR" description="CG_MEMO_SHADOW_COLOR_DESC" default="#ccc"/>
-				<field name="shadow-var" type="text" showon="shadow-type:var"
+				<field name="shadow-var" type="cgvariable" showon="shadow-type:var"
                     label="CG_MEMO_VAR_SHADOW" description="CG_MEMO_VAR_SHADOW_DESC" default=""
                     validate="variable"/>
 				<field name="pinvisibleyes" type="radio" class="btn-group" label="CG_MEMO_PIN_VISIBLE" description="CG_MEMO_PIN_VISIBLE_DESC" default="" >
@@ -120,7 +120,7 @@
 				</field>
 				<field name="color" type="color" showon="font-color-type:pick"
                     label="CG_MEMO_COLOR" description="CG_MEMO_COLOR_DESC" default=""/>
-				<field name="font-var" type="text" showon="font-color-type:var"
+				<field name="font-var" type="cgvariable" showon="font-color-type:var"
                     label="CG_MEMO_VAR_FONT" description="CG_MEMO_VAR_FONT_DESC" default=""
                     validate="variable"/>
 				<field name="line-height" type="cgrange" class="limits buttons" unit="px"

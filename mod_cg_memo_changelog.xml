@@ -2,6 +2,17 @@
 	<changelog>
 		<element>mod_cg_memo</element>
 		<type>Module</type>
+		<version>4.1.5</version>
+        <note>
+            <item>Update : 21/05/2025</item>
+        </note>
+		<change>
+			<item>CG Variable: display color if possible</item>
+		</change>
+	</changelog>
+	<changelog>
+		<element>mod_cg_memo</element>
+		<type>Module</type>
 		<version>4.1.4</version>
         <note>
             <item>Update : 14/03/2025</item>
