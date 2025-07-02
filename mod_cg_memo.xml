@@ -2,11 +2,11 @@
 <extension type="module" version="4.2.0" client="site" method="upgrade">
 	<name>CG Responsive Memo</name>
 	<author>ConseilGouz</author>
-	<creationDate>2025-05-21</creationDate>
+	<creationDate>2025-07-02</creationDate>
 	<copyright>Copyright (C) 2025 ConseilGouz. All rights reserved.</copyright>
 	<authorEmail>pascal.leconte@conseilgouz.com</authorEmail>
 	<authorUrl>www.conseilgouz.com</authorUrl>
-	<version>4.1.5</version>
+	<version>4.2.0</version>
 	<namespace path="src">ConseilGouz\Module\Cgmemo</namespace>	
 	<description>CG_MEMO_DESC</description>
 	<files>

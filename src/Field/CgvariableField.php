@@ -9,7 +9,7 @@
 
 namespace ConseilGouz\Module\Cgmemo\Site\Field;
 
-defined('JPATH_PLATFORM') or die;
+defined('_JEXEC') or die;
 use Joomla\CMS\Form\Field\TextField;
 
 class CgvariableField extends TextField
