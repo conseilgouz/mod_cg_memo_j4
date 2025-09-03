@@ -17,11 +17,7 @@ $document 		= Factory::getApplication()->getDocument();
 $wa = Factory::getApplication()->getDocument()->getWebAssetManager();
 $wa->registerAndUseStyle('cgmemo', $modulefield.'css/cgmemo.css');
 $core = $wa->useAsset('script', 'core');
-if ((bool)Factory::getConfig()->get('debug')) { // Mode debug
-    $document->addScript(''.URI::base(true).'/media/mod_cg_memo/js/cgmemo.js');
-} else {
-    $wa->registerAndUseScript('cgmemo', $modulefield.'js/cgmemo.js');
-}
+$wa->registerAndUseScript('cgmemo', $modulefield.'js/cgmemo.js');
 $style = "";
 if ($params->get('font-family') == 'allthatmattersmedium') {
     $style = "@font-face {
